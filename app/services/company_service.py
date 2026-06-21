@@ -21,3 +21,15 @@ class CompanyService:
 
     def list_companies(self):
         return self.company_repository.list()
+
+    def get_company(self, ticker: str):
+        company = self.company_repository.get_by_ticker(ticker)
+        if company is None:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Company with ticker {ticker.upper()} was not found.",
+            )
+        return company
+
+    def search_companies(self, query: str, limit: int):
+        return self.company_repository.search(query=query, limit=limit)

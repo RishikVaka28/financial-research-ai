@@ -80,6 +80,46 @@ Response `200 OK`:
 ]
 ```
 
+### `GET /companies/search?query=apple&limit=10`
+
+Searches companies by ticker, name, sector, or industry. Results are ordered by ticker.
+
+Response `200 OK`:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Apple Inc.",
+    "ticker": "AAPL",
+    "sector": "Technology",
+    "industry": "Consumer Electronics",
+    "description": "Builds devices, software, and services.",
+    "created_at": "2026-06-18T00:00:00Z",
+    "updated_at": "2026-06-18T00:00:00Z"
+  }
+]
+```
+
+### `GET /companies/{ticker}`
+
+Retrieves a single company by ticker symbol.
+
+Response `200 OK`:
+
+```json
+{
+  "id": 1,
+  "name": "Apple Inc.",
+  "ticker": "AAPL",
+  "sector": "Technology",
+  "industry": "Consumer Electronics",
+  "description": "Builds devices, software, and services.",
+  "created_at": "2026-06-18T00:00:00Z",
+  "updated_at": "2026-06-18T00:00:00Z"
+}
+```
+
 ## Research
 
 ### `POST /research`

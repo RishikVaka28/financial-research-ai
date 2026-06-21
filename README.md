@@ -20,6 +20,8 @@ and generate AI-assisted research summaries from company information and financi
 | --- | --- | --- |
 | `POST` | `/companies` | Create a company record. |
 | `GET` | `/companies` | List all companies. |
+| `GET` | `/companies/search?query=apple` | Search companies by ticker, name, sector, or industry. |
+| `GET` | `/companies/{ticker}` | Retrieve one company by ticker. |
 | `POST` | `/research` | Generate and store an AI research report for a ticker. |
 | `GET` | `/research/{id}` | Retrieve a stored research report. |
 | `GET` | `/health` | Health check. |
