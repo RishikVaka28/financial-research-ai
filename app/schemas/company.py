@@ -17,7 +17,10 @@ class CompanyBase(BaseModel):
     @field_validator("ticker")
     @classmethod
     def normalize_ticker(cls, value: str) -> str:
-        return value.strip().upper()
+        normalized = value.strip().upper()
+        if not normalized:
+            raise ValueError("Ticker must contain at least one non-whitespace character.")
+        return normalized
 
 
 class CompanyCreate(CompanyBase):

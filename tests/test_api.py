@@ -19,6 +19,18 @@ def test_create_and_list_companies(client):
     assert len(list_response.json()) == 1
 
 
+def test_create_company_rejects_whitespace_only_ticker(client):
+    response = client.post(
+        "/companies",
+        json={
+            "name": "Apple Inc.",
+            "ticker": "   ",
+        },
+    )
+
+    assert response.status_code == 422
+
+
 def test_search_and_get_company_by_ticker(client):
     client.post(
         "/companies",
